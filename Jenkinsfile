@@ -6,7 +6,7 @@ pipeline {
     stages {
         stage('get the code') {
             steps {
-                git 'https://github.com/devopscode1/mavenproject'
+                git 'https://github.com/Naresh-1954/09062021_TEST_NARESH.git'
             }
         }
         stage('build') {
