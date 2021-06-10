@@ -1,8 +1,6 @@
 pipeline {
 
-    agent {
-
-        label 'node'
+    agent any
 
     }
 
@@ -14,9 +12,7 @@ pipeline {
 
                 sh 'echo "this will get me the code"'
 
-                git 'https://github.com/Naresh-1954/09062021_TEST_NARESH.git'
-
-            }
+                   }
 
         }
 
