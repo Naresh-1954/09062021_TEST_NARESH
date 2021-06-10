@@ -1,52 +1,32 @@
 pipeline {
-
     agent any
-
+    tools {
+        maven "maven3.6"
     }
-
     stages {
-
         stage('get the code') {
-
             steps {
-
-                sh 'echo "this will get me the code"'
-
-                   }
-
-        }
-
-        stage('second stage') {
-
-            steps {
-
-                sh 'echo "this is second stage"'
-
+                git 'https://github.com/devopscode1/mavenproject'
             }
-
         }
-
-        stage('third stage') {
-
+        stage('build') {
             steps {
-
-                sh 'echo "this is thrid step"'
-
+               sh 'mvn package'
             }
-
         }
-        stage('fourth stage') {
-
+        stage('approval') {
             steps {
-
-                sh './java1.sh'
-
+                input 'Do you want to deploy to staging env ?' 
             }
-
+            
         }
-
+        stage('deploy') {
+            steps {
+                sh 'chmod +x deploy.sh'
+                sh './deploy.sh'
+            }
+            
+        }
+        
     }
-
 }
-
-
