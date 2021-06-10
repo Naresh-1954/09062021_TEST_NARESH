@@ -1,0 +1,56 @@
+pipeline {
+
+    agent {
+
+        label 'node'
+
+    }
+
+    stages {
+
+        stage('get the code') {
+
+            steps {
+
+                sh 'echo "this will get me the code"'
+
+                git 'https://github.com/Naresh-1954/09062021_TEST_NARESH.git'
+
+            }
+
+        }
+
+        stage('second stage') {
+
+            steps {
+
+                sh 'echo "this is second stage"'
+
+            }
+
+        }
+
+        stage('third stage') {
+
+            steps {
+
+                sh 'echo "this is thrid step"'
+
+            }
+
+        }
+        stage('fourth stage') {
+
+            steps {
+
+                sh './java1.sh'
+
+            }
+
+        }
+
+    }
+
+}
+
+
